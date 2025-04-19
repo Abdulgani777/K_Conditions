@@ -1,11 +1,27 @@
 fun main() {
-    val num1 = 100
-    val num2 = 154
-    val num3 = 12
-    val average = if (num1 == num2 || num2 == num3 || num1 == num3) {
-        "Ошибка"
-    } else {
-        (num1 + num2 + num3) / 3
+    println("Введите три произвольных числа:")
+
+    val a = readLine()?.toDoubleOrNull()
+    val b = readLine()?.toDoubleOrNull()
+    val c = readLine()?.toDoubleOrNull()
+
+    if (a == null || b == null || c == null) {
+        println("Некорректный ввод. Пожалуйста, введите числовые значения.")
+        return
     }
-    println("Среднее число: $average")
+
+    // Проверяем совпадения
+    if (a == b || b == c || a == c) {
+        println("Ошибка")
+        return
+    }
+
+    // Находим среднее по значению (не арифметическое)
+    val middle = when {
+        (a > b && a < c) || (a < b && a > c) -> a
+        (b > a && b < c) || (b < a && b > c) -> b
+        else -> c
+    }
+
+    println("Среднее число: $middle")
 }

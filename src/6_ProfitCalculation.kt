@@ -1,5 +1,5 @@
 fun main() {
-    val export = 345
+    val export = 1000
     val import = 750
     val balance = export - import
     if (balance > 0) {
